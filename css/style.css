@@ -364,6 +364,13 @@ p  { color: var(--color-muted); }
   gap: var(--space-sm);
 }
 
+@media (min-width: 640px) {
+  .about__text {
+    max-height: 200px;
+    overflow-y: auto;
+  }
+}
+
 .about__bio {
   color: var(--color-muted);
 }
