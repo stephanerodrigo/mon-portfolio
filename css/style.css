@@ -358,6 +358,12 @@ p  { color: var(--color-muted); }
   object-fit: cover;
 }
 
+.about__text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
 .about__bio {
   color: var(--color-muted);
 }
