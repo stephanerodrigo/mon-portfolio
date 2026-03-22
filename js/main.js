@@ -1,5 +1,5 @@
 // =========================================
-// MonPortfolio — Main JavaScript
+// MonPortfolio - Main JavaScript
 // Author: Stephane RODRIGO
 // =========================================
 
