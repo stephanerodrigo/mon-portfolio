@@ -1,19 +1,19 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+Ce fichier fournit des instructions à Claude Code (claude.ai/code) pour travailler avec ce dépôt.
 
-## Project
+## Projet
 
-**MonPortfolio** — a static personal portfolio site. No framework, no build step. Open `index.html` directly in a browser.
+**MonPortfolio** — site portfolio statique personnel. Pas de framework, pas d'étape de build. Ouvrir `index.html` directement dans un navigateur.
 
 ## Stack
 
-- HTML, CSS, vanilla JavaScript
-- No libraries or frameworks
-- CSS custom properties for theming (dark background, defined in `:root`)
+- HTML, CSS, JavaScript vanilla
+- Pas de bibliothèques ni de frameworks
+- CSS custom properties pour le thème (fond sombre, définies dans `:root`)
 
 ## Conventions
 
-- **Code in English**: variable names, function names, CSS class names, comments
-- **Visible content in French**: all text displayed to the user
-- **Design**: minimalist, professional, dark theme, mobile-first (style for small screens first, use `min-width` media queries to scale up)
+- **Code en anglais** : noms de variables, fonctions, classes CSS, commentaires
+- **Contenu visible en français** : tout le texte affiché à l'utilisateur
+- **Design** : minimaliste, professionnel, thème sombre, mobile-first (styler d'abord les petits écrans, utiliser les media queries `min-width` pour les grands écrans)
