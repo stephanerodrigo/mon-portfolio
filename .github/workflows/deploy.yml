@@ -1,0 +1,99 @@
+name: Validate & Deploy
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    name: Validation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Vérifier que index.html existe
+        run: |
+          test -f index.html \
+            && echo "OK index.html trouvé" \
+            || (echo "ERREUR index.html manquant" && exit 1)
+
+      - name: Valider la syntaxe JavaScript
+        run: |
+          for f in js/*.js; do
+            node --check "$f" && echo "OK $f" || exit 1
+          done
+
+      - name: Valider la syntaxe CSS (accolades équilibrées)
+        run: |
+          python3 - <<'EOF'
+          import sys
+          with open('css/style.css') as f:
+              content = f.read()
+          opens  = content.count('{')
+          closes = content.count('}')
+          if opens != closes:
+              print(f"ERREUR CSS : {opens} accolades ouvrantes, {closes} fermantes")
+              sys.exit(1)
+          print(f"OK CSS : accolades équilibrées ({opens}/{closes})")
+          EOF
+
+      - name: Valider le HTML (balises non fermées)
+        run: |
+          python3 - <<'EOF'
+          import re, sys
+
+          content = open('index.html').read()
+          content = re.sub(r'<!--.*?-->', '', content, flags=re.DOTALL)
+          content = re.sub(r'<!DOCTYPE[^>]*>', '', content, flags=re.IGNORECASE)
+
+          VOID = {'area','base','br','col','embed','hr','img','input',
+                  'link','meta','param','source','track','wbr'}
+
+          tags = re.findall(r'<(/?)([a-zA-Z][a-zA-Z0-9]*)[^>]*/?>',content)
+          stack = []
+          for closing, tag in tags:
+              tag = tag.lower()
+              if tag in VOID:
+                  continue
+              if not closing:
+                  stack.append(tag)
+              else:
+                  if stack and stack[-1] == tag:
+                      stack.pop()
+                  else:
+                      print(f"ERREUR HTML : balise </{tag}> inattendue (pile : {stack})")
+                      sys.exit(1)
+          if stack:
+              print(f"ERREUR HTML : balises non fermées : {stack}")
+              sys.exit(1)
+          print("OK HTML : toutes les balises sont correctement fermées")
+          EOF
+
+  deploy:
+    name: Déploiement GitHub Pages
+    needs: validate
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - name: Déployer sur GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
