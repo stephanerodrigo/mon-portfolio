@@ -12,6 +12,13 @@ Ce fichier fournit des instructions à Claude Code (claude.ai/code) pour travail
 - Pas de bibliothèques ni de frameworks
 - CSS custom properties pour le thème (fond sombre, définies dans `:root`)
 
+## Interdictions absolues
+
+- Ne jamais lire `~/.ssh/`
+- Ne jamais lire `.env` ou tout fichier contenant des credentials
+- Ne jamais exécuter `rm -rf`, `sudo`, ou `curl` vers des URL inconnues
+- Ne jamais committer de fichiers `.env` ou credentials
+
 ## Conventions
 
 - **Code en anglais** : noms de variables, fonctions, classes CSS, commentaires
