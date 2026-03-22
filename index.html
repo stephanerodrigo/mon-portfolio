@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stephane RODRIGO — Portfolio</title>
+  <meta name="description" content="Portfolio de Stephane RODRIGO, Solution Architect AWS & Azure en formation à l'IA. Découvrez mes projets et contactez-moi.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Stephane RODRIGO — Portfolio">
+  <meta property="og:description" content="Solution Architect spécialisé sur AWS et Azure, en formation à l'IA. Découvrez mes projets.">
+  <meta property="og:image" content="https://stephanerodrigo.github.io/og-image.png">
+  <meta property="og:image:alt" content="Stephane RODRIGO — Développeur en formation">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://stephanerodrigo.github.io/og-image.png">
+  <meta name="twitter:image:alt" content="Stephane RODRIGO — Développeur en formation">
+  <meta name="twitter:title" content="Stephane RODRIGO — Portfolio">
+  <meta name="twitter:description" content="Solution Architect spécialisé sur AWS et Azure, en formation à l'IA.">
+  <script>(function(){var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}());</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+
+  <a href="#hero" class="skip-link">Aller au contenu principal</a>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="Navigation principale">
+      <a href="#hero" class="nav-logo" aria-label="Stephane RODRIGO — Retour en haut de page">SR</a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#about">À propos</a></li>
+        <li><a href="#projects">Projets</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Activer le mode clair">
+        <!-- Soleil (affiché en mode sombre) -->
+        <svg class="theme-toggle__sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+        <!-- Lune (affichée en mode clair) -->
+        <svg class="theme-toggle__moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+
+    <section id="hero" class="hero" aria-labelledby="hero-title" tabindex="-1">
+      <h1 id="hero-title">Stephane RODRIGO</h1>
+      <p class="hero-subtitle">Architect cloud se formant à l'IA</p>
+      <p class="hero-tagline">Solution Architect spécialisé sur AWS et Azure, je m'intéresse à l'IA afin de pouvoir automatiser un maximum de tâches.</p>
+      <a href="#projects" class="btn">Voir mes projets</a>
+    </section>
+
+    <section id="about" class="about" aria-labelledby="about-title">
+      <div class="container">
+        <h2 id="about-title" class="about__title">À propos</h2>
+        <div class="about__content">
+          <img class="about__photo" src="steph2.jpeg" alt="Portrait de Stephane RODRIGO" loading="lazy" decoding="async">
+          <p class="about__bio">Passionné par la technologie et l'intelligence artificielle, j'apprends à construire des projets concrets en utilisant les outils les plus avancés du marché. Ce portfolio est lui-même construit avec Claude Code.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="projects" aria-labelledby="projects-title">
+      <div class="container">
+        <h2 id="projects-title">Mes Projets</h2>
+        <ul class="project-grid" id="project-grid" aria-live="polite" aria-busy="true"></ul>
+      </div>
+    </section>
+
+    <section id="contact" class="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <h2 id="contact-title">Me contacter</h2>
+        <form class="contact-form" id="contact-form" novalidate>
+          <div class="contact-form__group">
+            <label class="contact-form__label" for="name">Nom <span class="contact-form__required" aria-hidden="true">*</span></label>
+            <input class="contact-form__input" type="text" id="name" name="name" placeholder="Votre nom" autocomplete="name" required aria-required="true" aria-describedby="name-error">
+            <p class="contact-form__error" id="name-error" role="alert" aria-live="polite"></p>
+          </div>
+          <div class="contact-form__group">
+            <label class="contact-form__label" for="email">Email <span class="contact-form__required" aria-hidden="true">*</span></label>
+            <input class="contact-form__input" type="email" id="email" name="email" placeholder="votre@email.com" autocomplete="email" required aria-required="true" aria-describedby="email-error">
+            <p class="contact-form__error" id="email-error" role="alert" aria-live="polite"></p>
+          </div>
+          <div class="contact-form__group">
+            <label class="contact-form__label" for="message">Message <span class="contact-form__required" aria-hidden="true">*</span></label>
+            <textarea class="contact-form__input contact-form__textarea" id="message" name="message" rows="5" placeholder="Votre message..." required aria-required="true" aria-describedby="message-error"></textarea>
+            <p class="contact-form__error" id="message-error" role="alert" aria-live="polite"></p>
+          </div>
+          <p class="contact-form__hint">Les champs marqués d'un astérisque (<span aria-hidden="true">*</span>) sont obligatoires.</p>
+          <button type="submit" class="btn contact-form__submit">Envoyer</button>
+          <p class="contact-form__status" id="form-status" aria-live="polite" aria-atomic="true"></p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <ul class="footer-links">
+        <li><a href="https://github.com/stephanerodrigo" target="_blank" rel="noopener noreferrer" aria-label="GitHub (s'ouvre dans un nouvel onglet)">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/stephanerodrigo/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn (s'ouvre dans un nouvel onglet)">LinkedIn</a></li>
+      </ul>
+      <p class="footer-copy">&copy; 2026 Stephane RODRIGO &mdash; Construit avec <span>Claude Code</span></p>
+    </div>
+  </footer>
+
+</body>
+</html>

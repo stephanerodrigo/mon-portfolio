@@ -1,0 +1,30 @@
+[
+  {
+    "name": "hello-python",
+    "description": "Script Python simple - exercice de prise en main",
+    "languages": ["Python"],
+    "url": "https://github.com/stephanerodrigo/hello-python",
+    "lastUpdated": "2026-03-22"
+  },
+  {
+    "name": "mon-portfolio",
+    "description": "Mon portfolio de développeur",
+    "languages": ["HTML", "CSS", "JavaScript"],
+    "url": "https://github.com/stephanerodrigo/mon-portfolio",
+    "lastUpdated": "2026-03-22"
+  },
+  {
+    "name": "notes-cli",
+    "description": "Outil de prise de notes en ligne de commande",
+    "languages": [],
+    "url": "https://github.com/stephanerodrigo/notes-cli",
+    "lastUpdated": "2026-03-22"
+  },
+  {
+    "name": "blog-personnel",
+    "description": "Blog personnel - articles et réflexions",
+    "languages": [],
+    "url": "https://github.com/stephanerodrigo/blog-personnel",
+    "lastUpdated": "2026-03-22"
+  }
+]
