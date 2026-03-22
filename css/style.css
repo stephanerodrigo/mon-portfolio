@@ -71,6 +71,7 @@ body,
 .site-header,
 .nav-links,
 .about,
+.skills,
 .project-card,
 .project-card__tag,
 .contact,
@@ -379,6 +380,7 @@ p  { color: var(--color-muted); }
 
 /* --- Skills --- */
 .skills {
+  background-color: var(--color-bg);
   padding: var(--space-lg) var(--space-sm);
 }
 
