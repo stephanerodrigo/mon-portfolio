@@ -8,8 +8,11 @@ steph.jpeg
 # Dependencies
 node_modules/
 
-# Environment
+# Environment & secrets
 .env
+*.key
+*secret*
+credentials.json
 
 # Private local config
 CLAUDE.local.md
