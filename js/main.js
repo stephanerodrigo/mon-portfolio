@@ -334,6 +334,11 @@ if (!prefersReducedMotion) {
 
   sections.forEach(section => {
     section.classList.add('fade-in');
-    observer.observe(section);
+    const rect = section.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom >= 0) {
+      section.classList.add('is-visible');
+    } else {
+      observer.observe(section);
+    }
   });
 }
