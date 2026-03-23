@@ -28,6 +28,7 @@ themeToggle.addEventListener('click', () => {
 // --- Hamburger menu ---
 const toggle = document.getElementById('nav-toggle');
 const navLinks = document.getElementById('nav-links');
+const navLinksPlaceholder = document.createComment('nav-links-placeholder');
 const mainContent = document.querySelector('main');
 const siteFooter = document.querySelector('footer');
 
@@ -48,6 +49,9 @@ function trapFocus(e) {
 }
 
 function openMenu() {
+  // Move navLinks to body to escape backdrop-filter stacking context of header
+  navLinks.parentNode.insertBefore(navLinksPlaceholder, navLinks);
+  document.body.appendChild(navLinks);
   navLinks.classList.add('is-open');
   toggle.classList.add('is-active');
   toggle.setAttribute('aria-expanded', 'true');
@@ -70,6 +74,9 @@ function closeMenu() {
   mainContent.inert = false;
   siteFooter.inert = false;
   navLinks.removeEventListener('keydown', trapFocus);
+  // Restore navLinks to its original position in the header
+  navLinksPlaceholder.parentNode.insertBefore(navLinks, navLinksPlaceholder);
+  navLinksPlaceholder.parentNode.removeChild(navLinksPlaceholder);
 }
 
 toggle.addEventListener('click', () => {
