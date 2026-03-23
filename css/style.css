@@ -634,6 +634,9 @@ p  { color: var(--color-muted); }
     opacity: 1;
     pointer-events: auto;
     background: none;
+    width: auto;
+    height: auto;
+    overflow-y: visible;
   }
 
   .nav-links a {
